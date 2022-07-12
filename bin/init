@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+set -eu
+
+repo="git@github.com:RedEyed-RPG/redeyed-jumpstarter"
+
+help() {
+    echo "Usage:"
+    echo
+    echo "  bash path/to/init [options]"
+    echo
+    echo "Options:"
+    echo "      -h, --help          Print this help information"
+}
+
+git_init() {
+    if [ ! -d ".git" ]; then
+        git init
+        git add .
+        git commit -m "feat: initial commit"
+        git branch -M master
+        git remote add origin ${repo}
+        git push -u origin master
+    fi
+}
+
+while (($#)); do
+    opt="$1"
+    case $opt in
+        -h | --help)
+            help
+            exit 0
+        ;;
+        *)
+            help
+            exit 1
+        ;;
+    esac
+done
+
+git_init

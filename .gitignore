@@ -1,0 +1,24 @@
+# hidden files
+.*
+!.git*
+!.forestry
+!.editorconfig
+!.nojekyll
+!.travis.yml
+!.husky
+!.commitlintrc.js
+!.versionrc.json
+
+# bundler cache
+_site
+vendor
+
+
+# rubygem
+*.gem
+Gemfile.lock
+
+# npm dependencies
+node_modules
+package-lock.json
+!/_sass/lib/bootstrap-5.0.2/scss/vendor/
